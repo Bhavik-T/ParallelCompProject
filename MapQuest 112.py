@@ -1,7 +1,7 @@
-from cmu_112_graphics import *
+from graphicLib import *
 from gameRules import *
-from Pieces import *
-from AI import *
+from Pieces import *    #TODO: Gaurav
+from AI import * #TODO: Gaurav
 
 def appStarted(app):
 
@@ -238,25 +238,25 @@ def drawCreateOptions(app,canvas):
     options_center = (2 * app.border +  app.squareLength * len(app.board))
     options_center = options_center + (app.width - options_center) // 2 
 
-    canvas.create_text(options_center, 50, text = "Create Menu", font = 'Arial 40 underline')
+    canvas.create_text(options_center, 50, text = "Create Menu", font = 'Arial 40 underline', fill='black')
 
     if app.createable > 2:
         canvas.create_rectangle(options_center - 150, 280, options_center + 150, 340)
-        canvas.create_text(options_center, 310, text = 'Knight\t\t9G', font = 'Arial 20')
+        canvas.create_text(options_center, 310, text = 'Knight\t\t9G', font = 'Arial 20', fill='gray')
     
     if app.createable > 1:
         canvas.create_rectangle(options_center - 150, 200, options_center + 150, 260)
-        canvas.create_text(options_center, 230, text = 'Archer\t\t6G', font = 'Arial 20')
+        canvas.create_text(options_center, 230, text = 'Archer\t\t6G', font = 'Arial 20', fill='gray')
     
     if app.createable > 0:
         canvas.create_rectangle(options_center - 150, 120, options_center + 150, 180)
-        canvas.create_text(options_center, 150, text = 'Soldier\t\t4G', font = 'Arial 20')
+        canvas.create_text(options_center, 150, text = 'Soldier\t\t4G', font = 'Arial 20', fill='gray')
     
 
     canvas.create_rectangle(options_center - 100, 620, options_center + 100, 680, fill = 'gray')
     canvas.create_text(options_center, 650, text = 'Help', font = 'Arial 30')
-    canvas.create_text(options_center, 500, text = f'Player Gold: {app.gold0}', font = 'Arial 30')
-    canvas.create_text(options_center, 400,text = f'Player Turn: {app.turn + 1}', font = 'Arial 30')
+    canvas.create_text(options_center, 500, text = f'Player Gold: {app.gold0}', font = 'Arial 30', fill='gray')
+    canvas.create_text(options_center, 400,text = f'Player Turn: {app.turn + 1}', font = 'Arial 30', fill='gray')
 
 
 
