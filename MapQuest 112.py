@@ -32,6 +32,12 @@ def appStarted(app):
     app.cols = len(app.board[0])
 
     #loading images
+
+    '''
+    TODO: Alejandro -> Find characters for each of the things listed below.
+          Create an image folder with subfolders and add each required image
+          Update file paths in the code below
+    '''
     app.cloudBackground = app.loadImage('Images/tiles/fog/fog_tile.png')
     app.cloudBackground = app.scaleImage(app.cloudBackground, app.squareLength/100)
     app.grassBackground = app.loadImage('Images/tiles/grassland/grassland_tile.png')
@@ -70,11 +76,20 @@ def appStarted(app):
     app.warriorT = app.loadImage('Images/TA sprites/warriors/zhara_warrior.png')
     app.warriorT = app.scaleImage(app.warriorT, app.squareLength/100)
 
+    '''
+    TODO: Alejandro -> Create a game_background and update file path
+    '''
     app.game_background = app.loadImage('Images/game_background.png')
     app.game_background = app.scaleImage(app.game_background, 1/3)
 
+    '''
+    TODO: Alejandro -> Create a lore for the game 
+    '''
     app.game_lore = app.loadImage('Images/game_lore.png')
 
+    '''
+    TODO: Alejandro -> Create a winscreen, lose screen, and helpscreen graphic
+    '''
     app.win_screen = app.loadImage('Images/winscreen.png')
     app.win_screen = app.scaleImage(app.win_screen, 3/5)
 
