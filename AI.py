@@ -3,7 +3,11 @@ from gameRules import *
 import random
 import copy
 
+#input: object
+#initiate game AI
 class Game(object):
+    #inputs: self, app, me - player, opponent - AI
+    #initiate game elements for AI to process
     def __init__(self, app, me, opponent):
         self.app = app
         self.board = copy.deepcopy(app.board)
@@ -20,7 +24,8 @@ class Game(object):
         for piece in self.allPieces:
             if piece.owner == self.me:
                 self.pieces.append(piece)
-    
+    #input self
+    #generate possible actionable playable moves for AI
     def generateMoves(self):
 
         myOutposts = []
@@ -48,7 +53,8 @@ class Game(object):
             allowed = piece.generateMovesAllowed(self.app)
             if len(allowed) > 0:
                 self.moves.append(['move', piece, allowed])
-    
+    #input: self
+    #pick move randomly for AI
     def pickMove(self):
         self.generateMoves()
         if len(self.moves) == 0:
@@ -57,7 +63,8 @@ class Game(object):
 
 
 
-
+#input: app
+#assign move for each given non-playable-character AI
 def getMove(app):
     me = 'Taylor'
     game = Game(app, me, 'Kosbie')
