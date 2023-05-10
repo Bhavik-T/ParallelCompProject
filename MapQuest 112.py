@@ -3,8 +3,10 @@ from gameRules import *
 from Pieces import *    #TODO: Gaurav
 from AI import * #TODO: Gaurav
 
+# takes in app object; initiates app properties
 def appStarted(app):
 
+    
     app.gold0 = 10
     app.gold1 = 10
     app.turn = 0
@@ -38,6 +40,7 @@ def appStarted(app):
           Create an image folder with subfolders and add each required image
           Update file paths in the code below
     '''
+    #load game images
     app.cloudBackground = app.loadImage('Images/tiles/fog/fog01.png')
     app.cloudBackground = app.scaleImage(app.cloudBackground, app.squareLength/100)
     app.grassBackground = app.loadImage('Images/tiles/grassland/grass.png')
@@ -99,7 +102,7 @@ def appStarted(app):
     app.help_screen = app.loadImage('Images/helpscreen.png')
     #app.help_screen = app.scaleImage(app.help_screen, 3/5)
 
-
+#take in app; start timer
 def gameMode_timerFired(app):
     if app.gameState == 1:
         app.mode = "winScreen"
@@ -109,7 +112,8 @@ def gameMode_timerFired(app):
         getGold(app)
         getMove(app)
         app.turn = 1 - app.turn
-    
+
+#take in app; augment gold per each sides' gold farm
 def getGold(app):
     app.gold0 += 1
     for i in app.board:
@@ -119,7 +123,7 @@ def getGold(app):
     app.gold1 += 1
     for i in app.board:
             app.gold1 += i.count('FarmTaylor')
-    
+#take in app and event; process mouse input to yield appropriate game outcome
 def gameMode_mousePressed(app,event):
     row = getDim(app,event.y)
     col = getDim(app,event.x)
@@ -179,12 +183,12 @@ def gameMode_mousePressed(app,event):
                     app.turn = 1 - app.turn
             
             clearSelection(app)
-
+#input: app; delete selected item in-game
 def clearSelection(app):
     app.selected = None
     app.moveable = []
     app.createable = 0
-
+#
 def generateCreateable(app):
     if app.gold0 >= 9:
         return 3
@@ -196,10 +200,11 @@ def generateCreateable(app):
         return 0
 
 
-
+#inputs: app, dim - set value of dimmness; dims borders of game
 def getDim(app,dim):
     return (dim - app.border) // app.squareLength
 
+#inputs: app, row - x-coor, col - y-coor; select soldier; return selected soldier
 def soldierSelected(app,row,col):
     for character in app.characters:
         if character.x == col and character.y == row:
@@ -207,7 +212,7 @@ def soldierSelected(app,row,col):
     return None
 
         
-    
+#inputs: app, canvas - drawable space; iniate all visual elements    
 def gameMode_redrawAll(app,canvas):
     canvas.create_rectangle(0,0,800,800, fill = 'blue')
     drawBoard(app,canvas)
@@ -216,6 +221,7 @@ def gameMode_redrawAll(app,canvas):
     drawMovesAllowed(app,canvas)
     drawFog(app, canvas)
 
+#inputs: app, canvas - drawable space; draw cloud background
 def drawFog(app, canvas):
     for row in range(len(app.visibility)):
         for col in range(len(app.visibility)):
@@ -224,7 +230,7 @@ def drawFog(app, canvas):
                                     col * app.squareLength + app.border + app.squareLength //2,
                                     image=ImageTk.PhotoImage(app.cloudBackground))
 
-
+#inputs: app, canvas - drawable space; illustrate possible moves to player
 def drawMovesAllowed(app,canvas):
     for (row,col) in app.moveable:
         circleCenterX = col * app.squareLength + app.border + app.squareLength // 2
@@ -233,7 +239,7 @@ def drawMovesAllowed(app,canvas):
         canvas.create_oval(circleCenterX - 10, circleCenterY - 10, circleCenterX + 10,
                            circleCenterY + 10, fill = 'brown')
 
-
+#inputs: app, canvas - drawable space; draw user-interface for player to access settings
 def drawCreateOptions(app,canvas):
     options_center = (2 * app.border +  app.squareLength * len(app.board))
     options_center = options_center + (app.width - options_center) // 2 
@@ -263,7 +269,7 @@ def drawCreateOptions(app,canvas):
 
 
         
-
+#inputs: app, canvas - drawable space; illustrate characters
 def drawCharacters(app,canvas):
     for character in app.characters:
         if type(character) == Archer:
@@ -361,28 +367,28 @@ def drawBoard(app,canvas):
 
 
 
-
+#inputs: app, canvas - drawable space; indicate win for player
 def winScreen_redrawAll(app,canvas):
     canvas.create_image(app.width//2, app.height//2,
                         image=ImageTk.PhotoImage(app.win_screen))
-
+#inputs: app, canvas - drawable space; indicate lose for player
 def loseScreen_redrawAll(app,canvas):
     canvas.create_image(app.width//2, app.height//2,
                         image=ImageTk.PhotoImage(app.lose_screen))
-
+#inputs: app, canvas - drawable space; show interface for help with game
 def helpScreen_redrawAll(app,canvas):
     canvas.create_image(app.width//2, app.height//2 - 50,
                         image=ImageTk.PhotoImage(app.help_screen))
     canvas.create_rectangle(app.width // 2 - 100, app.height // 2 + 265, app.width // 2 + 100, 
                             app.height // 2 + 335, fill = 'red')
     canvas.create_text(app.width//2, app.height//2 + 300, text = "Return", font = 'Arial 40', fill = 'white')
-
+#inputs: app, canvas - drawable space; use mouse to interface with help screen
 def helpScreen_mousePressed(app,event):
     if (event.x > app.width // 2 - 100 and event.x < app.width // 2 + 100 and
         event.y > app.height // 2 + 265 and event.y < app.height // 2 + 335):
             app.mode = 'gameMode'
 
-
+#inputs: app, canvas - drawable space; redraw titlescreen 
 def titleScreen_redrawAll(app,canvas):
     canvas.create_image(app.width//2, app.height//2,
                         image=ImageTk.PhotoImage(app.game_background))\
@@ -394,13 +400,13 @@ def titleScreen_redrawAll(app,canvas):
     
 
     
-
+#inputs: app, canvas - drawable space; use mouse input to interface with title-screen
 def titleScreen_mousePressed(app,event):
     if (event.x > app.width // 2 - 100 and event.x < app.width // 2 + 100 and
         event.y > app.height // 2 + 165 and event.y < app.height // 2 + 235):
             app.mode = 'LoreScreen'
 
-
+#inputs: app, canvas - drawable space; display lore 
 def LoreScreen_redrawAll(app,canvas):
     canvas.create_image(app.width//2, app.height//2 - 75,
                         image=ImageTk.PhotoImage(app.game_lore))
@@ -408,11 +414,11 @@ def LoreScreen_redrawAll(app,canvas):
     canvas.create_rectangle(app.width // 2 - 100, app.height // 2 + 260, app.width // 2 + 100, 
                             app.height // 2 + 330, fill = 'gray')
     canvas.create_text(app.width//2, app.height//2 + 295, text = "Next", font = 'Arial 40', fill = 'white')
-
+#inputs: app, canvas - drawable space; use mouse input to interface with lore-screen
 def LoreScreen_mousePressed(app,event):
     if (event.x > app.width // 2 - 100 and event.x < app.width // 2 + 100 and
         event.y > app.height // 2 + 260 and event.y < app.height // 2 + 330):
             app.mode = 'gameMode'
 
-
+#start the game
 runApp(width = 1200, height = 800)
