@@ -76,7 +76,7 @@ def appStarted(app):
     app.warriorT = app.scaleImage(app.warriorT, app.squareLength/100)
 
  
-    app.game_background = app.loadImage('Images/—Pngtree—geometric backgrounc with blue polygons_3637927.png')
+    app.game_background = app.loadImage('Images/game_background.png')
     app.game_background = app.scaleImage(app.game_background, 1/3)
 
  
