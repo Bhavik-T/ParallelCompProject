@@ -35,11 +35,7 @@ def appStarted(app):
 
     #loading images
 
-    '''
-    TODO: Alejandro -> Find characters for each of the things listed below.
-          Create an image folder with subfolders and add each required image
-          Update file paths in the code below
-    '''
+ 
     #load game images
     app.cloudBackground = app.loadImage('Images/tiles/fog/fog01.png')
     app.cloudBackground = app.scaleImage(app.cloudBackground, app.squareLength/100)
@@ -79,16 +75,12 @@ def appStarted(app):
     app.warriorT = app.loadImage('Images/sprites/rat_naked_fat10.png')
     app.warriorT = app.scaleImage(app.warriorT, app.squareLength/100)
 
-    '''
-    TODO: Alejandro -> Create a game_background and update file path
-    '''
-    app.game_background = app.loadImage('Images/game_background.png')
+ 
+    app.game_background = app.loadImage('Images/—Pngtree—geometric backgrounc with blue polygons_3637927.png')
     app.game_background = app.scaleImage(app.game_background, 1/3)
 
-    '''
-    TODO: Alejandro -> Create a lore for the game 
-    '''
-    app.game_lore = app.loadImage('Images/game_lore.png')
+ 
+    app.game_lore = app.loadImage('Images/lore.png')
 
     '''
     TODO: Alejandro -> Create a winscreen, lose screen, and helpscreen graphic
