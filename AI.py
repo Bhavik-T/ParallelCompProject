@@ -54,6 +54,7 @@ class Game(object):
             if len(allowed) > 0:
                 self.moves.append(['move', piece, allowed])
     #input: self
+    #outputs: random.choice(self.moves) - move from self.move picked randomly; 0 - NA move
     #pick move randomly for AI
     def pickMove(self):
         self.generateMoves()
