@@ -82,16 +82,14 @@ def appStarted(app):
  
     app.game_lore = app.loadImage('Images/lore.png')
 
-    '''
-    TODO: Alejandro -> Create a winscreen, lose screen, and helpscreen graphic
-    '''
-    app.win_screen = app.loadImage('Images/winscreen.png')
+  
+    app.win_screen = app.loadImage('Images/pcompWscreen.png')
     app.win_screen = app.scaleImage(app.win_screen, 3/5)
 
-    app.lose_screen = app.loadImage('Images/losescreen.png')
+    app.lose_screen = app.loadImage('Images/pcompLscreen.png')
     app.lose_screen = app.scaleImage(app.lose_screen, 3/5)
 
-    app.help_screen = app.loadImage('Images/helpscreen.png')
+    app.help_screen = app.loadImage('Images/pcompHelp.png')
     #app.help_screen = app.scaleImage(app.help_screen, 3/5)
 
 #take in app; start timer
