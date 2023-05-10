@@ -1,5 +1,8 @@
 import random
 from collections import deque
+#inputs: x - x-coor., y - y-coor., dimensions - dimensions of cell
+#outputs: True: cell not exterior, False: cell is exterior
+#signifiy whether cell is a border cell
 def isExterior(x, y, dimensions):
     #Is the cell a border cell?
     if x == 0 or y == 0:
@@ -12,6 +15,9 @@ def isExterior(x, y, dimensions):
 
 from collections import deque
 
+#inputs: board - current state of game with all elements
+#outputs: True: game fair, False: game not fair
+#calculate the difference in current power between the AI and the player
 def checkFairness(board):
     numOutpost = 0
     numFarm = 0
@@ -26,7 +32,8 @@ def checkFairness(board):
         return False
     return True
                 
-
+#inputs: board - current state of game with all elements
+#output: False - ind
 def checkMap(board):
     if checkFairness(board) == False:
         return False
@@ -71,7 +78,9 @@ def BFS(start, end, graph):
                 seen.add((x2, y2))
 
 
-
+#input: dimensions - game dimensions
+#output: board - current state of game with all elements
+#generate map with images given dimensions
 def generateMap(dimensions):
     
     board = [
