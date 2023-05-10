@@ -88,7 +88,7 @@ def appStarted(app):
     '''
     TODO: Alejandro -> Create a lore for the game 
     '''
-    app.game_lore = app.loadImage('Images/game_lore.png')
+    app.game_lore = app.loadImage('Images/lore.png')
 
     '''
     TODO: Alejandro -> Create a winscreen, lose screen, and helpscreen graphic
