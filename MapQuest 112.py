@@ -82,7 +82,7 @@ def appStarted(app):
     '''
     TODO: Alejandro -> Create a game_background and update file path
     '''
-    app.game_background = app.loadImage('Images/game_background.png')
+    app.game_background = app.loadImage('Images/—Pngtree—geometric backgrounc with blue polygons_3637927.png')
     app.game_background = app.scaleImage(app.game_background, 1/3)
 
     '''
