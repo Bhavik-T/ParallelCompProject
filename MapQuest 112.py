@@ -66,17 +66,17 @@ def appStarted(app):
     app.farm = app.loadImage('Images/tiles/farm/farmhouse.png')
     app.farm = app.scaleImage(app.farm, app.squareLength/100)
 
-    app.archerK = app.loadImage('Images/TA sprites/archers/archer.png')
+    app.archerK = app.loadImage('Images/sprites/archer.png')
     app.archerK = app.scaleImage(app.archerK, app.squareLength/100)
-    app.archerT = app.loadImage('Images/TA sprites/archers/arqueira.png')
+    app.archerT = app.loadImage('Images/sprites/arqueira.png')
     app.archerT = app.scaleImage(app.archerT, app.squareLength/100)
-    app.knightK = app.loadImage('Images/TA sprites/horseriders/botonselectmount.png')
+    app.knightK = app.loadImage('Images/sprites/botonselectmount.png')
     app.knightK = app.scaleImage(app.knightK, app.squareLength/100)
-    app.knightT = app.loadImage('Images/TA sprites/horseriders/horse.png')
+    app.knightT = app.loadImage('Images/sprites/horse.png')
     app.knightT = app.scaleImage(app.knightT, app.squareLength/100)
-    app.warriorK = app.loadImage('Images/TA sprites/warriors/icegolem.png')
+    app.warriorK = app.loadImage('Images/sprites/icegolem.png')
     app.warriorK = app.scaleImage(app.warriorK, app.squareLength/100)
-    app.warriorT = app.loadImage('Images/TA sprites/warriors/rat_naked_fat10.png')
+    app.warriorT = app.loadImage('Images/sprites/rat_naked_fat10.png')
     app.warriorT = app.scaleImage(app.warriorT, app.squareLength/100)
 
     '''
