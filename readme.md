@@ -6,7 +6,7 @@ Algorithms:
 1. Min Max Model: The algorithm takes into account all the possible moves that players can take at any given time during the game. It keeps playing ahead until it reaches a terminal arrangement of the board (terminal state) resulting in a tie, a win, or a loss. Once in a terminal state, the AI will assign an arbitrary positive score (+10) for a win, a negative score (-10) for a loss, or a neutral score (0) for a tie. At the same time, the algorithm evaluates the moves that lead to a terminal state based on the players’ turn. It will choose the move with maximum score when it is the AI’s turn and choose the move with the minimum score when it is the human player’s turn.
 2. Floyd-Washall: The algorithm finds the shortest paths between pairs of vertices in a graph. It takes into account the moving units on the map and finds the shortest path between any two locations. Ultimately, this allows the AI to make the best decision on how to attack the player. 
 
-MVC Programming Style: MVC, or Model-View-Controller, is a software architectural pattern that separates an application into three interconnected components: the Model, the View, and the Controller. This separation of concerns allows for a clear division of labor and improved maintainability.
+3. MVC Programming Style: MVC, or Model-View-Controller, is a software architectural pattern that separates an application into three interconnected components: the Model, the View, and the Controller. This separation of concerns allows for a clear division of labor and improved maintainability.
 
 The Model represents the underlying data and business logic of the application. It is responsible for managing the data and enforcing any constraints or rules on that data.
 
