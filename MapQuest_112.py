@@ -14,8 +14,8 @@ def appStarted(app):
     app.gameState = 0
 
     # set up game board
-    app.board = generateMap(6)
-    app.visibility = [([0] * 6) for i in range(6)]
+    app.board = generateMap(12)
+    app.visibility = [([0] * 12) for i in range(12)]
     app.visibility[0][0] = 1
     app.visibility[0][1] = 1
     app.visibility[1][0] = 1
@@ -30,7 +30,7 @@ def appStarted(app):
     # set up game modes and dimensions
     app.mode = 'titleScreen'
     app.border = 30
-    app.squareLength = (app.height - 2 * app.border) // 6 #len(app.board)
+    app.squareLength = (app.height - 2 * app.border) // 12 #len(app.board)
     app.rows = len(app.board)
     app.cols = len(app.board[0])
 
