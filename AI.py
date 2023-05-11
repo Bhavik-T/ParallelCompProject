@@ -3,12 +3,13 @@ from gameRules import *
 import random
 import copy
 
-#input: object
-#initiate game AI
+# Input: object
+# Define the 'Game' class
 class Game(object):
-    #inputs: self, app, me - player, opponent - AI
-    #initiate game elements for AI to process
+    # Inputs: self, app, me - player, opponent - AI
+    # Initialize game AI
     def __init__(self, app, me, opponent):
+        # Store the app object, board state, all pieces, gold reserves, player and opponent, and the current turn
         self.app = app
         self.board = copy.deepcopy(app.board)
         self.allPieces = app.characters
@@ -19,7 +20,8 @@ class Game(object):
         self.me = me
         self.opp = opponent
         self.turn = me
-
+        
+         # Filter the list of all pieces to only include pieces owned by the player
         self.pieces = []
         for piece in self.allPieces:
             if piece.owner == self.me:
@@ -27,7 +29,7 @@ class Game(object):
     #input self
     #generate possible actionable playable moves for AI
     def generateMoves(self):
-
+        # Find all outposts and bases owned by the player
         myOutposts = []
         for i in range(len(self.board)):
             for j in range(len(self.board)):
@@ -35,6 +37,8 @@ class Game(object):
                     myOutposts.append((i, j))
                 if 'Base' in self.board[j][i] and 'Taylor' in self.board[j][i]:
                     myOutposts.append((i, j))
+                    
+        # Determine which pieces can be created based on the player's gold reserves
         canCreate = []
         if self.gold >= 4:
             canCreate.append('Soldier')
@@ -42,12 +46,14 @@ class Game(object):
             canCreate.append('Archer')
         if self.gold >= 9:
             canCreate.append('Knight')
+            
+        # Generate a list of all possible create moves
         createMoves = []
         for i in canCreate:
             for j in myOutposts:
                 createMoves.append(['create', [i, j]])
 
-
+        # Generate a list of all possible moves for each existing piece
         self.moves = createMoves
         for piece in self.pieces:
             allowed = piece.generateMovesAllowed(self.app)
@@ -67,9 +73,13 @@ class Game(object):
 #input: app
 #assign move for each given non-playable-character AI
 def getMove(app):
+    # Set the player and opponent names
     me = 'Taylor'
     game = Game(app, me, 'Kosbie')
+    # Get a random move for the AI
     move = game.pickMove()
+    
+    # Execute the chosen move
     if move == 0:
         return
     if move[0] == 'move':
