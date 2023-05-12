@@ -123,7 +123,6 @@ class Game(object):
         bestMovePoints = 0
         bestMove = None
         for t in returnValues:
-            print(f"best move{t}")
             move, movePoints = t
             if movePoints > bestMovePoints:
                 bestMovePoints = movePoints
