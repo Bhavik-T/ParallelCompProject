@@ -81,7 +81,7 @@ def appStarted(app):
     app.game_background = app.scaleImage(app.game_background, 1/3)
 
  
-    app.game_lore = app.loadImage('Images/lore.png')
+    app.game_lore = app.loadImage('Images/lorefinalv1.png')
 
   
     app.win_screen = app.loadImage('Images/pcompWscreen.png')
