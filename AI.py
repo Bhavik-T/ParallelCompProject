@@ -2,6 +2,7 @@ from Pieces import *
 from gameRules import *
 import random
 import copy
+import threading
 
 # Input: object
 # Define the 'Game' class
@@ -59,16 +60,76 @@ class Game(object):
             allowed = piece.generateMovesAllowed(self.app)
             if len(allowed) > 0:
                 self.moves.append(['move', piece, allowed])
+    def evaluation(self, moves, returnValues, threadNum):
+        myOutposts = []
+        for i in range(len(self.board)):
+            for j in range(len(self.board)):
+                if 'Outpost' in self.board[j][i] and 'Taylor' in self.board[j][i]:
+                    myOutposts.append((i, j))
+                if 'Base' in self.board[j][i] and 'Taylor' in self.board[j][i]:
+                    myOutposts.append((i, j))
+        Farms = []
+        for i in range(len(self.board)):
+            for j in range(len(self.board)):
+                if 'Farm' in self.board[j][i] and not 'Kosbie' in self.board[j][i]:
+                    Farms.append((i, j))
+        OppCharLocations = []
+        for i in range(len(self.board)):
+            for j in range(len(self.board)):
+                if ('Soldier' in self.board[j][i] or 'Archer' in self.board[j][i] or 'Knight' in self.board[j][i]) and 'Taylor' in self.board[j][i]:
+                    OppCharLocations.append((i, j))
+        bestMovePoints = 0
+        bestMove = None
+        for move in moves:
+            movePoints = 0
+            if(move in Farms): 
+                movePoints += 5
+            elif(move in myOutposts): 
+                movePoints += 10
+            elif(move in OppCharLocations):
+                movePoints += 100
+            if movePoints > bestMovePoints:
+                bestMovePoints = movePoints
+                bestMove = move  
+        if bestMove == None:
+            bestMove = random.choice(self.moves)
+            bestMovePoints = 2
+        returnValues[threadNum] = (bestMove, bestMovePoints)
+
     #input: self
     #outputs: random.choice(self.moves) - move from self.move picked randomly; 0 - NA move
     #pick move randomly for AI
+
     def pickMove(self):
         self.generateMoves()
         if len(self.moves) == 0:
             return 0
-        return random.choice(self.moves)
 
+        # Create two threads, each evaluating half of the moves
+        half = len(self.moves) // 2
+        returnValues = [0, 0]
+        t1 = threading.Thread(target=self.evaluation, args=(self.moves[:half],returnValues,0))
+        t2 = threading.Thread(target=self.evaluation, args=(self.moves[half:],returnValues,1))
+        
+        # Start both threads
+        t1.start()
+        t2.start()
 
+        # Wait for both threads to finish
+        t1.join()
+        t2.join()
+
+        # Get the best move from the two threads' results
+        bestMovePoints = 0
+        bestMove = None
+        for t in returnValues:
+            print(f"best move{t}")
+            move, movePoints = t
+            if movePoints > bestMovePoints:
+                bestMovePoints = movePoints
+                bestMove = move
+
+        return bestMove
 
 #input: app
 #assign move for each given non-playable-character AI
