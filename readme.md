@@ -4,7 +4,7 @@ How to run:
 
 Dev Log: https://github.com/Bhavik-T/ParallelCompProject/blob/b6ff493ae75f7e7fdc22a3c08cac8419cc1fc566/devlog.md
 
-Video Demo: https://youtu.be/vo-2CBzUYNw
+Video Demo: https://drive.google.com/file/d/1s09a31PXe3XS1QsGh4HxiVYDa5pCBOxQ/view?usp=sharing
 
 Algorithms: 
 1. Min Max Model: The algorithm takes into account all the possible moves that players can take at any given time during the game. It keeps playing ahead until it reaches a terminal arrangement of the board (terminal state) resulting in a tie, a win, or a loss. Once in a terminal state, the AI will assign an arbitrary positive score (+10) for a win, a negative score (-10) for a loss, or a neutral score (0) for a tie. At the same time, the algorithm evaluates the moves that lead to a terminal state based on the players’ turn. It will choose the move with maximum score when it is the AI’s turn and choose the move with the minimum score when it is the human player’s turn.
