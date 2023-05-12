@@ -1,65 +1,65 @@
 History of Development:
 
-3/10
+3/10:
 Alejandro, Bhavik, and Gaurav
 Brainstormed and researched different game ideas
 Discussed potential mechanics and themes
 
-3/15
+3/15:
 Alejandro 
 Created initial prototypes of the game
 Tested different gameplay mechanics and features
 
-3/18
+3/18:
 Alejandro and Gaurav
 Discussed and planned out different art styles for the game
 Created several concept art pieces for the game
 
-3/20
+3/20:
 Alejandro, Bhavik, and Gaurav
 Created initial concept for the game
 Developed game mechanics and gameplay
 Alejandro
 Designed game logo and more concept art
 
-3/25
+3/25:
 Alejandro 
 Developed and refined the game's storyline and setting
 Created several characters and factions for the game
 
-3/28
+3/28:
 Gaurav
 Created several initial sketches for the game's user interface
 Discussed potential designs and layouts with Alejandro and Bhavik
 
-3/30
+3/30:
 Bhavik
 Create readme.md
 Upload graphics library
 Map creation algorithm started and completed
 
 
-4/6
+4/6:
 Alejandro
 Designed and implemented the initial interface for the game
 Developed home screen and menus
 Developed game sprites and animations
 
-Bhavik
+Bhavik:
 Implemented initial version of game engine
 Created basic functionality for moving game pieces
 Created economy feature
 
-4/15
+4/15:
 Bhavik
 Finished outline for graphical interface
 Fixed bugs preventing player from seeing army options
 
-4/16
+4/16:
 Alejandro 
 Finalized strategic lore 
 
-4/18
+4/18:
 Gaurav
 AI file created
 
@@ -67,7 +67,7 @@ Gaurav
 Created pieces.py file
 Fixed minor bugs
 
-5/9
+5/9:
 Alejandro 
 File directory created for images
 Tiles and sprites assigned and renamed 
@@ -75,7 +75,7 @@ Tiles and sprites assigned and renamed
 Alejandro, Gaurav, Bhavik
 Parallelization of program
 
-5/10
+5/10:
 Alejandro 
 Renamed file path names in code
 Documentation of functions: inputs and purpose
@@ -87,7 +87,7 @@ Gaurav
 Changed background images
 Resized tiles
 
-5/11
+5/11:
 Alejandro 
 Finalization of documentation
 Reformatting of help/score screens
