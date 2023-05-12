@@ -82,10 +82,11 @@ def appStarted(app):
 
  
     app.game_lore = app.loadImage('Images/lorefinalv1.png')
+    app.game_lore = app.scaleImage(app.game_lore, 1.25)
 
   
     app.win_screen = app.loadImage('Images/pcompWscreen.png')
-    app.win_screen = app.scaleImage(app.win_screen, 3/5)
+    app.win_screen = app.scaleImage(app.win_screen, 2)
 
     app.lose_screen = app.loadImage('Images/pcompLscreen.png')
     app.lose_screen = app.scaleImage(app.lose_screen, 3/5)
@@ -127,7 +128,7 @@ def gameMode_mousePressed(app,event):
     #check if help menu was clicked
     if (event.x > options_center - 100 and event.x < options_center + 100 and
         event.y > 620 and event.y < 680):
-        app.mode = "helpScreen"
+        app.mode = "winScreen"
     # check if it is player 1's turn
     if app.turn == 0:
         # check if the click was within the game board
