@@ -90,7 +90,7 @@ def appStarted(app):
     app.lose_screen = app.loadImage('Images/pcompLscreen.png')
     app.lose_screen = app.scaleImage(app.lose_screen, 3/5)
 
-    app.help_screen = app.loadImage('Images/pcompHelp.png')
+    app.help_screen = app.loadImage('Images/help (1).png')
     #app.help_screen = app.scaleImage(app.help_screen, 3/5)
 
 #take in app; start timer
