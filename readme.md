@@ -2,6 +2,8 @@ How to run:
 1. Terminal: python3 MapQuest_112.py
 2. VSCode: Press play button
 
+Dev Log: https://github.com/Bhavik-T/ParallelCompProject/blob/b6ff493ae75f7e7fdc22a3c08cac8419cc1fc566/devlog.md
+
 Video Demo: https://youtu.be/vo-2CBzUYNw
 
 Algorithms: 
