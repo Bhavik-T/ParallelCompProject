@@ -1,5 +1,5 @@
 History of Development:
-
+ 
 3/10
 Alejandro, Bhavik, and Gaurav
 Brainstormed and researched different game ideas
